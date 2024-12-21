@@ -4,20 +4,20 @@ metadata:
   name: mongo-deployment
   labels:
     app: mongo
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
         app: mongo
-    template:
-      metadata:
-        labels:
-          app: mongo
 
-      spec:
-        containers:
-          name: mongo
-          imgage: mongo:5.0
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:5.0
           ports:
             - containerPort: 27017
           env:
